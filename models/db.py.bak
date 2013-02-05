@@ -58,7 +58,7 @@ auth.settings.registration_requires_approval = False
 auth.settings.reset_password_requires_verification = True
 
 ## lss - expose wiki model and tables per http://www.web2pyslices.com/slice/show/1565/wikifying-web2py-apps
-auth.wiki(resolve=False, menugroups = ['wiki_editor','wiki_author'])
+auth.wiki(resolve=False, menugroups = ['wiki_editor','wiki_author'], manage_permissions=True)
 
 ## if you need to use OpenID, Facebook, MySpace, Twitter, Linkedin, etc.
 ## register with janrain.com, write your domain:api_key in private/janrain.key

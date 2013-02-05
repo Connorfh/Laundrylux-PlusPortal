@@ -19,9 +19,17 @@ def manage_locations():
     grid=SQLFORM.smartgrid(db.t_plus_location,
         linked_tables=['t_plus_machine'])
     return grid
-
+    
+def manage_messages():
+    grid=SQLFORM.smartgrid(db.t_plus_sms_message,
+        linked_tables=['t_plus_location'])
+    return grid
+    
 def receivesms():
-    db.t_plus_sms_messages.insert(
+    ''' receive sms message, insert into db, reply for confirmation '''
+    # test with plusportal2/plusc/receivesms?From=15167217331&To=15161231234&Body=Hello
+    
+    db.t_plus_sms_message.insert(
         f_from = request.vars['From'],
         f_to = request.vars.To,
         f_body = request.vars.Body)

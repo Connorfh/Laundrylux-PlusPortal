@@ -24,7 +24,7 @@ def index():
 
 def wiki():
     response.view = 'default/index.html'
-    return auth.wiki()
+    return auth.wiki(menugroups=['wiki_editor','wiki_author'])
 
 def user():
     """
