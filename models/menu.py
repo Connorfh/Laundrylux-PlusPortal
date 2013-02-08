@@ -24,13 +24,25 @@ response.google_analytics_id = None
 ## this is the main application menu add/remove items as required
 #########################################################################
 
+def urlHelper():
+    # linkName, activeFlag, url
+    return #i'll test this later
+    
 response.menu = [
-    (T('Home'), False, URL('default', 'index'), []),
-    (T('Home'),URL('default','index')==URL(),URL('default','index'),[
-        (T('Plus Location'),URL('default','plus_location_manage')==URL(),URL('default','plus_location_manage'),[]),
-        (T('Plus Machine'),URL('default','plus_machine_manage')==URL(),URL('default','plus_machine_manage'),[]),
-        (T('Plus SMS Log'),URL('default','plus_smslog_manage')==URL(),URL('default','plus_smslog_manage'),[]),
-        (T('Plus SMS Receive'),URL('default','receivesms')==URL(),URL('default','receivesms'),[])
+    (T('Home'), False, URL('default', 'index')),
+    (T('Messages'), False, URL('default', 'index'),[
+        # t_plus_contact, t_plus_distributor, t_plus_location, t_plus_location_contact, t_plus_machine, t_plus_sms_message
+        (T('Send Message'), URL('plusc', 'send_message')==URL(), URL('plusc', 'send_message')),
+        (T('View New Messages'), URL('plusc', 'manage_messages')==URL(), URL('plusc', 'manage_messages')),
+    ]),
+    (T('Manage'), False, URL('default', 'index'),[
+        # t_plus_contact, t_plus_distributor, t_plus_location, t_plus_location_contact, t_plus_machine, t_plus_sms_message
+        (T('Distributors'), URL('plusc', 'manage_distributors')==URL(), URL('plusc', 'manage_distributors')),
+        (T('Locations'), URL('plusc', 'manage_locations')==URL(), URL('plusc', 'manage_locations')),
+        (T('Contacts'), URL('plusc', 'manage_contacts')==URL(), URL('plusc', 'manage_contacts')),
+        (T('Location Contacts'), URL('plusc', 'manage_location_contacts')==URL(), URL('plusc', 'manage_location_contacts')),
+        (T('Machines'), URL('plusc', 'manage_machines')==URL(), URL('plusc', 'manage_machines')),
+        (T('Messages'), URL('plusc', 'manage_messages')==URL(), URL('plusc', 'manage_messages')),
     ])
 ]
 
