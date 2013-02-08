@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+# lss - use UTC as basis for all stored dates
+#request.now = request.utcnow 
+
 #########################################################################
 ## This scaffolding model makes your app work on Google App Engine too
 ## File is released under public domain and you can use without limitations
@@ -46,6 +49,10 @@ crud, service, plugins = Crud(db), Service(), PluginManager()
 ## create all tables needed by auth if not custom tables
 auth.define_tables(username=False, signature=False)
 
+## lss - expose wiki model and tables per http://www.web2pyslices.com/slice/show/1565/wikifying-web2py-apps
+## lss - restrict wiki menu to groups, use wiki permissions
+auth.wiki(resolve=False, manage_permissions=True, menugroups=['wiki_editor','wiki_author'])
+
 ## configure email
 mail = auth.settings.mailer
 mail.settings.server = 'logging' or 'smtp.gmail.com:587'
@@ -56,9 +63,6 @@ mail.settings.login = 'username:password'
 auth.settings.registration_requires_verification = False
 auth.settings.registration_requires_approval = False
 auth.settings.reset_password_requires_verification = True
-
-## lss - expose wiki model and tables per http://www.web2pyslices.com/slice/show/1565/wikifying-web2py-apps
-auth.wiki(resolve=False, menugroups=['wiki_editor','wiki_author'], manage_permissions=True)
 
 ## if you need to use OpenID, Facebook, MySpace, Twitter, Linkedin, etc.
 ## register with janrain.com, write your domain:api_key in private/janrain.key

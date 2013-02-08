@@ -20,8 +20,11 @@ def index():
     or
     return auth.wiki()
     """
-    redirect(URL('default','wiki',args='home'))
+    return dict(message=T('Professional Laundry Utility Service (P.L.U.S.) ...'))
+    #redirect(URL('default','wiki',args='home'))
 
+
+@auth.requires_login()
 def wiki():
     response.view = 'default/index.html'
     return auth.wiki()

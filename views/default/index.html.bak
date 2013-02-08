@@ -20,7 +20,7 @@
 {{elif 'content' in globals():}}
 {{=content}}
 {{else:}}
-{{#=BEAUTIFY(response._vars)}}
+{{=#BEAUTIFY(response._vars)}}
 {{pass}}
 
 {{block right_sidebar}}

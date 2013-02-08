@@ -39,7 +39,7 @@ if (request.application == 'admin' and not session.authorized) or \
 
 ignore_rw = True
 response.view = 'appadmin.html'
-response.menu = [[T('design'), False, URL('admin', 'default', 'design',
+response.menu += [[T('design'), False, URL('admin', 'default', 'design',
                  args=[request.application])], [T('db'), False,
                  URL('index')], [T('state'), False,
                  URL('state')], [T('cache'), False,

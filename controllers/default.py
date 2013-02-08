@@ -9,7 +9,6 @@
 ## - call exposes all registered services (none by default)
 #########################################################################
 
-
 def index():
     """
     example action using the internationalization operator T and flash
@@ -20,11 +19,13 @@ def index():
     or
     return auth.wiki()
     """
-    redirect(URL('default','wiki',args='home'))
+    return dict(message=T('Professional Laundry Utility Service (P.L.U.S.) ...'))
+    #redirect(URL('default','wiki',args='home'))
 
+@auth.requires_login()
 def wiki():
     response.view = 'default/index.html'
-    return auth.wiki(menugroups=['wiki_editor','wiki_author'])
+    return auth.wiki()
 
 def user():
     """
@@ -42,14 +43,12 @@ def user():
     """
     return dict(form=auth())
 
-
 def download():
     """
     allows downloading of uploaded files
     http://..../[app]/default/download/[filename]
     """
     return response.download(request, db)
-
 
 def call():
     """
@@ -59,7 +58,6 @@ def call():
     supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
     """
     return service()
-
 
 @auth.requires_signature()
 def data():
