@@ -95,7 +95,7 @@ db.t_plus_location.f_sms_phone_number.requires = IS_NOT_IN_DB(db, db.t_plus_loca
 db.t_plus_machine.f_location.requires = IS_IN_DB(db, db.t_plus_location.id, '%(title)s')
 db.t_plus_machine.f_location.represent = (lambda value, row: A(row.f_location.f_name, _href=URL('plus_location_manage', args=['t_plus_location', 'view', 't_plus_location', row.f_location.id], user_signature=True)))
 
-#db.t_plus_sms_message.created_on.readable = db.t_plus_sms_message.created_by.readable = True
+db.t_plus_sms_message.created_on.readable = db.t_plus_sms_message.created_by.readable = True
 #db.t_plus_sms_message.created_on.writable = db.t_plus_sms_message.created_by.writable = False
 
 #shift=datetime.timedelta(....) 

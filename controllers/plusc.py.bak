@@ -35,8 +35,10 @@ def send_message():
         account = "AC57a31d8a4c47e868f90f8bae98dd09d6"
         token = "a2bc850976c783b714a99c749ca01d62"
         client = TwilioRestClient(account, token)
-        message = client.sms.messages.create(to="+15167217331", from_="+15162047575",
-                                     body=locNumber[0].f_name)
+        #message = client.sms.messages.create(to=locNumber[0].f_sms_phone_number, from_="+15162047575",
+        message = client.sms.messages.create(to="+15167217331", from_="+15162047575", body=form.vars.f_body)
+        #message = client.sms.messages.create(to=locNumber[0].f_sms_phone_number, from_="+15162047575",
+                                     body=form.vars.f_body)
                                      
     elif form.errors:
         response.flash = 'form has errors'
@@ -51,7 +53,9 @@ def receivesms():
     db.t_plus_sms_message.insert(
         f_from = request.vars['From'],
         f_to = request.vars.To,
-        f_body = request.vars.Body)
+        f_body = request.vars.Body,
+        f_status = 'New',
+        f_direction = 'Received')
         
     #sender = request.vars['From'][-10:]+'@vtext.com'
     #mail.send([sender],'hello',request.vars.Body)
