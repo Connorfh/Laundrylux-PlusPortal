@@ -41,9 +41,9 @@ def send_message():
         session.flash = 'form accepted'
         
         # test credentials
-        # twilioAccount = "ACc3bf197710521ed42649640d90bc5b82"
-        # twilioToken = "c621b2222995adfca2a466fe389f26f6"
-        # twilioFrom = '+15005550006' # for successful sms send
+        # twilioAccount = "account number"
+        # twilioToken = "token number"
+        # twilioFrom = 'some number' # for successful sms send
         
         # live credentials
         twilioAccount = "account number"
