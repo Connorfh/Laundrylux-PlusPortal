@@ -91,7 +91,7 @@ db.define_table('t_plus_sms_message',
     Field('f_sales_order_num', type='integer', label=T('Sales Order Number')),
     Field('f_parent_msg', type='reference t_plus_sms_message', label=T('Parent Message')),
     auth.signature,
-    format='%(id)s - %(f_body)s',
+    format='%(f_body)s',
     singular='SMS Message', plural='SMS Messages',
     migrate=True)
     
