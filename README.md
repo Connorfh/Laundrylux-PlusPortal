@@ -1,4 +1,4 @@
-Laundryluux Plus Portal
+Laundrylux Plus Portal
 ====================
 
 Laundrylux Plus Portal
